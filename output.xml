@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.13.5 on win32)" generated="2025-07-12T04:41:59.527561" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\thale\Desktop\Robot Framework Assignment\tests.robot">
+<test id="s1-t1" name="Open Firefox Browser" line="17">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:42:07.863400" level="INFO">Opening browser 'firefox' to base url 'https://the-internet.herokuapp.com/'.</msg>
+<arg>${URL}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:42:07.856109" elapsed="68.226223"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:42:07.852348" elapsed="68.236111"/>
+</test>
+<test id="s1-t2" name="Navigate To Form Authentication" line="20">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:16.094712" level="INFO">Clicking link 'link:Form Authentication'.</msg>
+<arg>link:Form Authentication</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:16.093939" elapsed="5.681066"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:16.092443" elapsed="5.685300"/>
+</test>
+<test id="s1-t3" name="Extract Password And Username" line="23">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:22.856272" level="INFO">${description} = Login Page
+This is where you can log into the secure area. Enter tomsmith for the username and SuperSecretPassword! for the password. If the information is wrong you should see error messages.
+Usernam...</msg>
+<var>${description}</var>
+<arg>css=div.example</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:21.779693" elapsed="1.076689"/>
+</kw>
+<kw name="Extract Credentials" owner="Keyword">
+<msg time="2025-07-12T04:43:22.857755" level="INFO">${username} = tomsmith</msg>
+<var>${username}</var>
+<arg>${description}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2025-07-12T04:43:22.857016" elapsed="0.000810"/>
+</kw>
+<kw name="Extract Credentials" owner="Keyword">
+<msg time="2025-07-12T04:43:22.858913" level="INFO">${password} = SuperSecretPassword!</msg>
+<var>${password}</var>
+<arg>${description}</arg>
+<arg>and</arg>
+<status status="PASS" start="2025-07-12T04:43:22.858347" elapsed="0.000640"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:43:22.859852" level="INFO">${username} = tomsmith</msg>
+<arg>${username}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:43:22.859449" elapsed="0.000500"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:43:22.860610" level="INFO">${password} = SuperSecretPassword!</msg>
+<arg>${password}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:43:22.860289" elapsed="0.000414"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:21.778799" elapsed="1.082224"/>
+</test>
+<test id="s1-t4" name="Negative Login - Invalid username" line="30">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:22.864850" level="INFO">Typing text 'Invalid' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>Invalid</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:22.864359" elapsed="1.383997"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:24.250358" level="INFO">Typing text 'SuperSecretPassword!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:24.249106" elapsed="0.383891"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:24.633989" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:24.633611" elapsed="5.241491"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:22.861829" elapsed="7.531087"/>
+</test>
+<test id="s1-t5" name="Negative Login - Invalid password" line="35">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:30.399742" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:30.398942" elapsed="1.297005"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:32.031150" level="INFO">Typing text 'Invalid' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>Invalid</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:32.030623" elapsed="0.512434"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:32.562707" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:32.561755" elapsed="3.683220"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:30.394971" elapsed="5.902668"/>
+</test>
+<test id="s1-t6" name="Positive Login - Valid username and password" line="40">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:36.303418" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:36.301891" elapsed="0.920035"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:37.325715" level="INFO">Typing text 'SuperSecretPassword!' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:37.325115" elapsed="2.345071"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:39.992249" level="INFO">Clicking button 'css=button[type="submit"]'.</msg>
+<arg>css=button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:39.991736" elapsed="3.683799"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:36.299850" elapsed="7.475571"/>
+</test>
+<test id="s1-t7" name="Upload a file" line="45">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:43.898614" level="INFO">Opening url 'https://the-internet.herokuapp.com/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:43:43.898236" elapsed="1.964608"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:45.863901" level="INFO">Clicking link 'link:File Upload'.</msg>
+<arg>link:File Upload</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:45.863474" elapsed="5.012178"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:50.876966" level="INFO">Sending C:\Users\thale\Desktop\Robot Framework Assignment\zero_bytes_file.txt to browser.</msg>
+<arg>id=file-upload</arg>
+<arg>${File_Path}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:50.876309" elapsed="0.335555"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:51.213033" level="INFO">Clicking button 'id=file-submit'.</msg>
+<arg>id=file-submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:51.212596" elapsed="1.746914"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:43.897167" elapsed="9.064781"/>
+</test>
+<test id="s1-t8" name="Searching for a phrase" line="51">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:43:53.138461" level="INFO">${found_count} = 0</msg>
+<arg>${found_count}</arg>
+<arg>0</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:43:52.963876" elapsed="0.174807"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:43:53.140677" level="INFO">${reload_count} = 0</msg>
+<var>${reload_count}</var>
+<arg>0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:43:53.139505" elapsed="0.001268"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:53.142136" level="INFO">Opening url 'https://the-internet.herokuapp.com/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:43:53.141629" elapsed="1.808876"/>
+</kw>
+<while condition="${found_count} &lt; 3">
+<iter>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:54.955456" level="INFO">Opening url 'https://the-internet.herokuapp.com//dynamic_content'</msg>
+<arg>${URL}/dynamic_content</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:43:54.954958" elapsed="1.656700"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:56.699761" level="INFO">${page_text} = Dynamic Content
+This example demonstrates the ever-evolving nature of content by loading new text and images on each page refresh.
+To make some of the content static append ?with_content=static or cli...</msg>
+<var>${page_text}</var>
+<arg>css=#content</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.612045" elapsed="0.087819"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:43:56.700720" level="INFO">${reload_count} = 1</msg>
+<var>${reload_count}</var>
+<arg>${reload_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.700215" elapsed="0.000569"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Increment Found Count And Screenshot">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:43:56.703084" level="INFO">${found_count} = 1</msg>
+<var>${found_count}</var>
+<arg>${found_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.702692" elapsed="0.000457"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:43:56.703786" level="INFO">${found_count} = 1</msg>
+<arg>${found_count}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.703421" elapsed="0.000458"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:43:56.704447" level="INFO">Found count is now 1</msg>
+<arg>Found count is now ${found_count}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.704089" elapsed="0.000457"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:57.637678" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.704784" elapsed="0.933145"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:56.702044" elapsed="0.936119"/>
+</kw>
+<arg>'${SEARCH_PHRASE}' in '''${page_text}'''</arg>
+<arg>Increment Found Count And Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-12T04:43:56.701027" elapsed="0.937434"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:54.951298" elapsed="2.687545"/>
+</iter>
+<iter>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:57.640906" level="INFO">Opening url 'https://the-internet.herokuapp.com//dynamic_content'</msg>
+<arg>${URL}/dynamic_content</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:43:57.640370" elapsed="1.351957"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:59.094453" level="INFO">${page_text} = Dynamic Content
+This example demonstrates the ever-evolving nature of content by loading new text and images on each page refresh.
+To make some of the content static append ?with_content=static or cli...</msg>
+<var>${page_text}</var>
+<arg>css=#content</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:43:58.992726" elapsed="0.101829"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:43:59.095535" level="INFO">${reload_count} = 2</msg>
+<var>${reload_count}</var>
+<arg>${reload_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.094908" elapsed="0.000701"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Increment Found Count And Screenshot">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:43:59.097600" level="INFO">${found_count} = 2</msg>
+<var>${found_count}</var>
+<arg>${found_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.097168" elapsed="0.000501"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:43:59.098298" level="INFO">${found_count} = 2</msg>
+<arg>${found_count}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.097925" elapsed="0.000470"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:43:59.098933" level="INFO">Found count is now 2</msg>
+<arg>Found count is now ${found_count}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.098626" elapsed="0.000408"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:59.155988" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.099270" elapsed="0.056949"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:59.096679" elapsed="0.059767"/>
+</kw>
+<arg>'${SEARCH_PHRASE}' in '''${page_text}'''</arg>
+<arg>Increment Found Count And Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.095948" elapsed="0.060642"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:57.638989" elapsed="1.517716"/>
+</iter>
+<iter>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:43:59.157850" level="INFO">Opening url 'https://the-internet.herokuapp.com//dynamic_content'</msg>
+<arg>${URL}/dynamic_content</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-07-12T04:43:59.157510" elapsed="1.578864"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:44:00.886743" level="INFO">${page_text} = Dynamic Content
+This example demonstrates the ever-evolving nature of content by loading new text and images on each page refresh.
+To make some of the content static append ?with_content=static or cli...</msg>
+<var>${page_text}</var>
+<arg>css=#content</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.747695" elapsed="0.139166"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:44:00.887941" level="INFO">${reload_count} = 3</msg>
+<var>${reload_count}</var>
+<arg>${reload_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.887254" elapsed="0.000768"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Increment Found Count And Screenshot">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-12T04:44:00.891724" level="INFO">${found_count} = 3</msg>
+<var>${found_count}</var>
+<arg>${found_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.891188" elapsed="0.000620"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-12T04:44:00.892678" level="INFO">${found_count} = 3</msg>
+<arg>${found_count}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.892131" elapsed="0.000664"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:00.893399" level="INFO">Found count is now 3</msg>
+<arg>Found count is now ${found_count}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.893050" elapsed="0.000467"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-12T04:44:00.971781" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.893800" elapsed="0.078344"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:44:00.890645" elapsed="0.081963"/>
+</kw>
+<arg>'${SEARCH_PHRASE}' in '''${page_text}'''</arg>
+<arg>Increment Found Count And Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.889696" elapsed="0.083134"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:59.156807" elapsed="1.816152"/>
+</iter>
+<status status="PASS" start="2025-07-12T04:43:54.951291" elapsed="6.022122"/>
+</while>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:00.974476" level="INFO">Phrase 'example' found 3 times after 3 reloads.</msg>
+<arg>Phrase '${SEARCH_PHRASE}' found 3 times after ${reload_count} reloads.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:00.973987" elapsed="0.000674"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:43:52.963033" elapsed="8.012101"/>
+</test>
+<test id="s1-t9" name="GET and a POST Request to an API" line="64">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-07-12T04:44:01.026581" level="INFO">Creating Session using : alias=api, url=https://jsonplaceholder.typicode.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${API_URL}</arg>
+<arg>verify=False</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-07-12T04:44:01.025295" elapsed="0.007208"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-07-12T04:44:02.308705" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-07-12T04:44:02.309360" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 12 Jul 2025 02:44:02 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Etag': 'W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"', 'Expires': '-1', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Pragma': 'no-cache', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=PefyJZsl8ehMv7SiGnRQhf4IEUD9iNdF0FVUCC37xao%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1752282780"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=PefyJZsl8ehMv7SiGnRQhf4IEUD9iNdF0FVUCC37xao%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1752282780"', 'Server': 'cloudflare', 'Vary': 'Origin, Accept-Encoding', 'Via': '2.0 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1752282794', 'Age': '5461', 'Cf-Cache-Status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '95dd324bcb0b15d5-JNB', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+} 
+ </msg>
+<msg time="2025-07-12T04:44:02.309572" level="INFO">C:\Users\thale\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-12T04:44:02.310574" level="INFO">${get_response} = &lt;Response [200]&gt;</msg>
+<var>${get_response}</var>
+<arg>api</arg>
+<arg>/posts/1</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-12T04:44:01.057772" elapsed="1.252925"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:02.312434" level="INFO">GET Response Status: 200</msg>
+<arg>GET Response Status: ${get_response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.311414" elapsed="0.001157"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-12T04:44:02.314444" level="INFO">${title} = sunt aut facere repellat provident occaecati excepturi optio reprehenderit</msg>
+<var>${title}</var>
+<arg>${get_response.json()}</arg>
+<arg>title</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.313093" elapsed="0.001433"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>GET Response Title: ${title}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.315012" elapsed="0.000582"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:02.424592" level="INFO">GET Response Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit</msg>
+<arg>GET Response Title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.424127" elapsed="0.000605"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-07-12T04:44:02.439283" level="INFO">${post_data} = {'title': 'foo', 'body': 'bar', 'userid': '1'}</msg>
+<var>${post_data}</var>
+<arg>title=foo</arg>
+<arg>body=bar</arg>
+<arg>userid=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.428476" elapsed="0.010961"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-07-12T04:44:03.319288" level="INFO">POST Request : url=https://jsonplaceholder.typicode.com/posts 
+ path_url=/posts 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json'} 
+ body=b'{"title": "foo", "body": "bar", "userid": "1"}' 
+ </msg>
+<msg time="2025-07-12T04:44:03.319553" level="INFO">POST Response : url=https://jsonplaceholder.typicode.com/posts 
+ status=201, reason=Created 
+ headers={'Date': 'Sat, 12 Jul 2025 02:44:03 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '67', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'Location', 'Cache-Control': 'no-cache', 'Etag': 'W/"43-FiiZpY48En80YEXPhjWQqqUrSbM"', 'Expires': '-1', 'Location': 'https://jsonplaceholder.typicode.com/posts/101', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Pragma': 'no-cache', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=j2y57giswtWOnncJhEo79Tu0djhpgHwi1%2Fb1DRrfZnw%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1752288243"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=j2y57giswtWOnncJhEo79Tu0djhpgHwi1%2Fb1DRrfZnw%3D&amp;sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&amp;ts=1752288243"', 'Server': 'cloudflare', 'Vary': 'Origin, X-HTTP-Method-Override, Accept-Encoding', 'Via': '2.0 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1752288254', 'Cf-Cache-Status': 'DYNAMIC', 'CF-RAY': '95dd324d8cd115d5-JNB', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "title": "foo",
+  "body": "bar",
+  "userid": "1",
+  "id": 101
+} 
+ </msg>
+<msg time="2025-07-12T04:44:03.320921" level="INFO">C:\Users\thale\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-07-12T04:44:03.487309" level="INFO">${post_response} = &lt;Response [201]&gt;</msg>
+<var>${post_response}</var>
+<arg>api</arg>
+<arg>/posts</arg>
+<arg>json=${post_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-07-12T04:44:02.440799" elapsed="1.046627"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:03.644649" level="INFO">POST Response Status: 201</msg>
+<arg>POST Response Status: ${post_response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:03.643012" elapsed="0.001794"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-12T04:44:03.648144" level="INFO">${post_id} = 101</msg>
+<var>${post_id}</var>
+<arg>${post_response.json()}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-12T04:44:03.646792" elapsed="0.001446"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>POST Response ID: ${post_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-12T04:44:03.648831" elapsed="0.003291"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-12T04:44:03.653653" level="INFO">POST Response ID: 101</msg>
+<arg>POST Response ID: ${post_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-12T04:44:03.653219" elapsed="0.000566"/>
+</kw>
+<status status="PASS" start="2025-07-12T04:44:01.011348" elapsed="2.642863"/>
+</test>
+<status status="PASS" start="2025-07-12T04:41:59.531800" elapsed="124.138452"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="9" fail="0" skip="0">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
